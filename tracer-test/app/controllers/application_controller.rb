@@ -2,30 +2,35 @@ class ApplicationController < ActionController::Base
 
   def index
 
-    t = SimpleTracer.new
+    sp = SimpleProfiler.new(params[:trace])
 
-    t.step_start("loading")
+    sp.start("loading")
     a = 0
     (1..100).each do |i|
-      (1..i).each do |_|
+      sp.start(:inner_i)
+      (1..i).each do |j|
         a = a + 1
       end
       a = 0
+      sp.stop(:inner_i)
     end
-    t.step_end("loading")
+    sp.stop("loading")
 
-    t.step_start(:slow_method)
+    sp.start("sleep")
     some_method()
-    t.step_end(:slow_method)
+    sp.stop("sleep")
 
-    logger.info(t.report.to_json)
+    report = sp.full_report
 
-    render json: {response: 'oi'}
+    p "REPORT:"
+    p report.to_json
+
+    render json: report
   end
 
   def some_method
-    p "start sleep"
-    sleep 3
-    p "end sleep"
+    p "zzzZZZzzz"
+    sleep 1
+    p "wake me up when tests ends..."
   end
 end
