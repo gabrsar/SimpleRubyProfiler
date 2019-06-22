@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   #
 
   get '/test', to: 'application#index'
+  get '/xoxo', to: 'application#xoxo'
 
 end

@@ -99,7 +99,7 @@ class SimpleProfiler
     true
   end
 
-  def full_report
+  def report
     return nil unless @run
     {
       steps: @steps.map do |_, v|

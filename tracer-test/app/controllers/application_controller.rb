@@ -1,46 +1,55 @@
 class ApplicationController < ActionController::Base
 
+  def xoxo
+    st = SimpleProfiler.new
+    st.start
+    sleep(3.141516)
+    st.stop
+    Rails.logger.info("why my thing is slow: report=#{st.report}")
+    render json: {}
+  end
+
   def index
     should_trace = params[:trace]
-    sp = SimpleProfiler.new(should_trace)
+    st = SimpleProfiler.new(should_trace)
 
     # Simple usage
-    sp.start
+    st.start
     x = 4
     Rails.logger.info("some random number = #{x}. choosen by a fair dice roll. guaranteed to be random.")
-    sp.stop
+    st.stop
 
     # Simple usage
-    sp.start(:math_tables)
+    st.start(:math_tables)
     (1..10).each do |t|
-      sp.start
+      st.start
       math_table(t)
-      sp.stop
+      st.stop
     end
-    sp.stop(:math_tables)
+    st.stop(:math_tables)
 
     # On an expensive task, with detailed steps
-    sp.start(:load_file)
+    st.start(:load_file)
     data = File.read("./examples/big_file.txt")
-    sp.stop(:load_file)
+    st.stop(:load_file)
 
     count = {}
-    sp.start(:parse_file)
+    st.start(:parse_file)
     data.split('').each do |c|
       occurrences = count[c]
       count[c] = occurrences ? occurrences + 1 : 1
     end
     Rails.logger.info(count)
-    sp.stop(:parse_file)
+    st.stop(:parse_file)
 
     # SLOWWWW method. Does a lot of things
-    sp.start(:slow_method)
+    st.start(:slow_method)
     value = compute_important_thing
     Rails.logger.info("response=#{value}")
-    sp.stop(:slow_method)
+    st.stop(:slow_method)
 
 
-    render json: sp.full_report
+    render json: st.report
   end
 
   def math_table(n)
