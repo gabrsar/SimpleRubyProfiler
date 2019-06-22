@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
     sp.stop(:math_tables)
 
     # On an expensive task, with detailed steps
-    sp.start(:load)
+    sp.start(:load_file)
     data = File.read("./examples/big_file.txt")
-    sp.stop(:load)
+    sp.stop(:load_file)
 
     count = {}
     sp.start(:parse_file)
