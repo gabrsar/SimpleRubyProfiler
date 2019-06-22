@@ -6,7 +6,7 @@ It helps you find why your Rails app is terrible slow.
 
 ## O_o How do I use it?
 ```ruby
-st = SimpleTracer.new
+st = SimpleProfiler.new
 st.start
 slow_method(tons, of, parameters)
 st.stop
