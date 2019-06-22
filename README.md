@@ -17,8 +17,8 @@ report={:steps=>[{:caller=>"/app/controllers/some_controller.rb:5:in slow_action
 ```
 
 ## Do you have more examples?
-Look that from other example:
-![](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/github_images/example.png "Logo Title Text 1")
+Look that from [other example](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/app/controllers/application_controller.rb):
+![](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/github_images/example.png)
 
 ## WOW. How do I get it?
 Copy ![this file](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/app/models/simple_profiler.rb) into your model folder. Be happy.
