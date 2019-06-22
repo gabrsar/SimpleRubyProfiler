@@ -1,21 +1,18 @@
 class SimpleProfiler
 
   class Step
-    @@root = nil
+
+    PRECISION = 6
 
     def initialize(name)
-      Step.root unless @@root
 
       @name = name
-      @caller = get_caller(3)
+      @caller = SimpleProfiler.get_caller(3)
       @calls = 0
       @time = 0
       @last_start_time = nil
       @last_end_time = nil
-    end
-
-    def self.root
-      @@root = Rails.root.to_s
+      @max = 0
     end
 
     def name
@@ -44,70 +41,91 @@ class SimpleProfiler
       @last_end_time = Time.now
       duration = @last_end_time - @last_start_time
       @time += duration
+      @max = duration if duration > @max
       @last_start_time = nil
       @last_end_time = nil
     end
 
     def report
-      {name: @name, caller: @caller, calls: @calls, time: @time.round(6)}
+
+      name = @name == @caller ? nil : @name
+      avg = @calls > 1 ? (@time / @calls).round(PRECISION) : nil
+      max = @max if @calls > 1
+      calls = @calls > 1 ? @calls : nil
+
+      {
+        name: name,
+        caller: @caller,
+        calls: calls,
+        time: @time.round(PRECISION),
+        avg: avg,
+        max: max
+      }.select {|_, v| v}
     end
 
-    def get_caller(lvl = 1)
-      full_path = caller_locations[lvl]&.to_s || '?'
-      full_path.split(@@root)[1]
-    end
   end
 
   def initialize(run = true)
+    @@root = Rails.root.to_s
     @run = !!run
     @root = Rails.root.to_s
     @steps = {}
+    @stack = []
   end
 
+  def self.get_caller(lvl)
+    full_path = caller_locations[lvl]&.to_s || "#{@@root}?"
+    full_path = full_path.tr("`'", '')
+    full_path.split(@@root)[1]
+  end
 
-  def start(step_name)
+  def start(step_name_opt = nil)
     return unless @run
-    step = @steps[step_name] || Step.new(step_name)
-    step.start
+
+    step_name = get_new_name(step_name_opt)
+    step = @steps[get_new_name(step_name)] || Step.new(step_name)
     @steps[step_name] = step
+    @stack.push(step_name)
+    step.start
   end
 
-  def stop(step_name)
+  def stop(step_name_opt = nil)
     return false unless @run
+    step_name = get_name(step_name_opt)
     step = @steps[step_name]
     return false unless step
     step.stop
+    @stack.pop
     true
   end
 
-
-  def simple_report
-    return nil unless @run
-    steps = @steps.to_a
-    fastest = slowest = hottest = steps[0][1]
-
-    @steps.each do |_, v|
-      slowest = v if v.time > slowest.time
-      fastest = v if v.time < fastest.time
-      hottest = v if v.calls > hottest.calls
-    end
-
-    {
-      fastest: fastest.name,
-      slowest: slowest.name,
-      hottest: hottest.name
-    }
-  end
-
-
   def full_report
-
     return nil unless @run
-
     {
-      steps: @steps.map {|_, v| v.report}
+      steps: @steps.map do |_, v|
+        v.stop
+        v.report
+      end
     }
-
   end
 
+  private
+
+  def get_new_name(name)
+    if name
+      name
+    else
+      SimpleProfiler.get_caller(2)
+    end
+  end
+
+  def get_name(name)
+    if name
+      name
+    elsif @stack.size > 0
+      @stack.last
+    else
+      nil
+    end
+  end
 end

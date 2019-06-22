@@ -1,36 +1,59 @@
 class ApplicationController < ActionController::Base
 
   def index
+    should_trace = params[:trace]
+    sp = SimpleProfiler.new(should_trace)
 
-    sp = SimpleProfiler.new(params[:trace])
+    # Simple usage
+    sp.start
+    x = 4
+    Rails.logger.info("some random number = #{x}. choosen by a fair dice roll. guaranteed to be random.")
+    sp.stop
 
-    sp.start("loading")
-    a = 0
-    (1..100).each do |i|
-      sp.start(:inner_i)
-      (1..i).each do |j|
-        a = a + 1
-      end
-      a = 0
-      sp.stop(:inner_i)
+    # Simple usage
+    sp.start(:math_tables)
+    (1..10).each do |t|
+      sp.start
+      math_table(t)
+      sp.stop
     end
-    sp.stop("loading")
+    sp.stop(:math_tables)
 
-    sp.start("sleep")
-    some_method()
-    sp.stop("sleep")
+    # On an expensive task, with detailed steps
+    sp.start(:load)
+    data = File.read("./examples/big_file.txt")
+    sp.stop(:load)
 
-    report = sp.full_report
+    count = {}
+    sp.start(:parse_file)
+    data.split('').each do |c|
+      occurrences = count[c]
+      count[c] = occurrences ? occurrences + 1 : 1
+    end
+    Rails.logger.info(count)
+    sp.stop(:parse_file)
 
-    p "REPORT:"
-    p report.to_json
+    # SLOWWWW method. Does a lot of things
+    sp.start(:slow_method)
+    value = compute_important_thing
+    Rails.logger.info("response=#{value}")
+    sp.stop(:slow_method)
 
-    render json: report
+
+    render json: sp.full_report
   end
 
-  def some_method
-    p "zzzZZZzzz"
-    sleep 1
-    p "wake me up when tests ends..."
+  def math_table(n)
+    lines = (1..10).map do |i|
+      "#{n}x#{i}=#{n * i}"
+    end
+    lines.join("\n")
+  end
+
+  def compute_important_thing
+    Rails.logger.info "working hard... please wait."
+    sleep 2
+    Rails.logger.info "done"
+    42
   end
 end
