@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f7d0452-3390-4ca6-93ad-634be1f0060d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tracer-test/app/models/simple_profiler.rb" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tracer-test/examples/big_file.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +24,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tracer-test/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="316">
-              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -51,7 +62,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/tracer-test" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -66,6 +77,7 @@
         <option value="$PROJECT_DIR$/tracer-test/app/models/simple_tracer.rb" />
         <option value="$PROJECT_DIR$/tracer-test/examples/big_file.txt" />
         <option value="$PROJECT_DIR$/tracer-test/app/models/simple_profiler.rb" />
+        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/tracer-test/app/controllers/application_controller.rb" />
       </list>
     </option>
@@ -93,38 +105,6 @@
             <path>
               <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-              <item name="tracer-test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-              <item name="tracer-test" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-              <item name="tracer-test" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-              <item name="tracer-test" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tracer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tracer" type="462c0819:PsiDirectoryNode" />
-              <item name="tracer-test" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -176,12 +156,12 @@
       <workItem from="1560895482296" duration="5936000" />
       <workItem from="1560935505740" duration="4653000" />
       <workItem from="1560990077143" duration="5016000" />
-      <workItem from="1561160156972" duration="5541000" />
+      <workItem from="1561160156972" duration="5786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21146000" />
+    <option name="totallyTimeSpent" value="21391000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -194,9 +174,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1284" height="1408" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22204214" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22204214" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -209,7 +188,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3286495" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3286495" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -265,7 +244,14 @@
     <entry file="file://$PROJECT_DIR$/tracer-test/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>
