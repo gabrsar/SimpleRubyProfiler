@@ -6,11 +6,11 @@ It helps you find why your Rails app is terrible slow.
 
 ## O_o How do I use it?
 ```ruby
-sp = SimpleTracer.new
-sp.start
+st = SimpleTracer.new
+st.start
 slow_method(tons, of, parameters)
-sp.stop
-Rails.logger.info("report=#{sp.report}")
+st.stop
+Rails.logger.info("report=#{st.report}")
 ```
 ```log
 report={:steps=>[{:caller=>"/app/controllers/some_controller.rb:5:in slow_action", :time=>3.141516}]}
