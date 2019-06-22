@@ -6,11 +6,11 @@ It helps you find why your Rails app is terrible slow.
 
 ## O_o How do I use it?
 ```ruby
-st = SimpleProfiler.new
-st.start
+sp = SimpleProfiler.new
+sp.start
 slow_method(tons, of, parameters)
-st.stop
-Rails.logger.info("report=#{st.report}")
+sp.stop
+Rails.logger.info("report=#{sp.report}")
 ```
 ```log
 report={:steps=>[{:caller=>"/app/controllers/some_controller.rb:5:in slow_action", :time=>3.141516}]}
