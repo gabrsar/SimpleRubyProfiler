@@ -60,22 +60,27 @@ class SimpleProfiler
         time: @time.round(PRECISION),
         avg: avg,
         max: max
-      }.select {|_, v| v}
+      }.select { |_, v| v }
     end
 
   end
 
   def initialize(run = true)
-    @@root = Rails.root.to_s
+    begin
+      @@root = Rails.root.to_s
+    rescue
+      @@root = __dir__
+    end
     @run = !!run
-    @root = Rails.root.to_s
     @steps = {}
     @stack = []
   end
 
   def self.get_caller(lvl)
-    full_path = caller_locations[lvl]&.to_s || "#{@@root}?"
+    full_path = caller_locations[lvl]&.to_s || "?"
+
     full_path = full_path.tr("`'", '')
+
     full_path.split(@@root)[1]
   end
 
