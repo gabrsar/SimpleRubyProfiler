@@ -4,7 +4,7 @@
 ## What it does?
 It helps you find why your Ruby application is terrible slow.
 
-## O_o How do I use it?
+## Wow. Audacious. How do I use it?
 ```ruby
 sp = SimpleProfiler.new
 sp.start
