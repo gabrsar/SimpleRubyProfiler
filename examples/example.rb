@@ -20,7 +20,7 @@ def run_example
 
 # On an expensive task, with detailed steps
   st.start(:load_file)
-  data = File.read("./examples/big_file.txt")
+  data = File.read("./big_file.txt")
   st.stop(:load_file)
 
   count = {}
