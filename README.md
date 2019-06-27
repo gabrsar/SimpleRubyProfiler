@@ -18,7 +18,7 @@ report={:steps=>[{:caller=>"/your_ruby_file.rb:5:in simple_test", :time=>3.14151
 
 ## Do you have more examples?
 Look that from [other example](./examples/example.rb):
-![](gabrielsaraiva.com.br/img/project_aux/SimpleRubyProfiler/example.png)
+![](http://www.gabrielsaraiva.com.br/img/project_aux/SimpleRubyProfiler/example.png)
 
 ## WOW. How do I get it?
 Copy ![this file](./simple_profiler.rb) into your model folder. Be happy.
