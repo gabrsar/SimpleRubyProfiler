@@ -2,7 +2,7 @@
 ### Simpler than you're lazy
 ---
 ## What it does?
-It helps you find why your Rails app is terrible slow.
+It helps you find why your Ruby application is terrible slow.
 
 ## O_o How do I use it?
 ```ruby
@@ -21,14 +21,14 @@ Look that from [other example](./examples/example.rb):
 ![](http://www.gabrielsaraiva.com.br/img/project_aux/SimpleRubyProfiler/example.png)
 
 ## WOW. How do I get it?
-Copy ![this file](./simple_profiler.rb) into your model folder. Be happy.
+Copy ![this file](./simple_profiler.rb) into your project. Require it (if necessary). Use it.
 
 ## Q&A 
 - Wow only one file? - Yep.
 - No Gems? - Soon.
-- Does it have tests? Not yet. There is a button for Pull Requests up there. Feel free to press it.
-- Do you will make tests for it? Yes. Soon.
-
+- Does it have tests? - Not yet. There is a button for Pull Requests up there. Feel free to press it.
+- Do you will make tests for it? - Yes. Soon.
+- But already exists tons of better tools in the marked. Why bother doing one more? - You already waste more time reading that than you would need to use it. Also I want to learn Ruby.
 - Oh. Can I use that in my company project that takes two ages to generate that fucking slow report? - Yep.
 - Do I/they need to pay you something? - No.
 - Can I change it? - Yep.
