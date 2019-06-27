@@ -1,4 +1,4 @@
-require_relative 'simple_profiler.rb'
+require_relative '../simple_profiler.rb'
 
 def run_example
   st = SimpleProfiler.new(true)
