@@ -10,23 +10,22 @@ sp = SimpleProfiler.new
 sp.start
 slow_method(tons, of, parameters)
 sp.stop
-Rails.logger.info("report=#{sp.report}")
+puts("report=#{sp.report}")
 ```
 ```log
-report={:steps=>[{:caller=>"/app/controllers/some_controller.rb:5:in slow_action", :time=>3.141516}]}
+report={:steps=>[{:caller=>"/your_ruby_file.rb:5:in simple_test", :time=>3.141516}]}
 ```
 
 ## Do you have more examples?
-Look that from [other example](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/app/controllers/application_controller.rb):
-![](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/github_images/example.png)
+Look that from [other example](./examples/example.rb):
+![](gabrielsaraiva.com.br/img/project_aux/SimpleRubyProfiler/example.png)
 
 ## WOW. How do I get it?
-Copy ![this file](https://github.com/gabrsar/SimpleRubyTracer/blob/master/tracer-test/app/models/simple_profiler.rb) into your model folder. Be happy.
+Copy ![this file](./simple_profiler.rb) into your model folder. Be happy.
 
-## Q&A
-- Can you please stick to a pattern? Tracer or Profiler? - Soon. I'm still deciding. 
+## Q&A 
 - Wow only one file? - Yep.
-- No Gems? - No. We're lazy remember?
+- No Gems? - Soon.
 - Does it have tests? Not yet. There is a button for Pull Requests up there. Feel free to press it.
 - Do you will make tests for it? Yes. Soon.
 
