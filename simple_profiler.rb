@@ -1,11 +1,11 @@
 class SimpleProfiler
 
   class Step
-
     PRECISION = 6
+    
+    attr_reader :name, :calls, :caller, :time
 
     def initialize(name)
-
       @name = name
       @caller = SimpleProfiler.get_caller(3)
       @calls = 0
@@ -13,22 +13,6 @@ class SimpleProfiler
       @last_start_time = nil
       @last_end_time = nil
       @max = 0
-    end
-
-    def name
-      @name
-    end
-
-    def calls
-      @calls
-    end
-
-    def caller
-      @caller
-    end
-
-    def time
-      @time
     end
 
     def start
